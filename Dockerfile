@@ -1,7 +1,7 @@
 FROM gradle:latest
 MAINTAINER gsefanov@gmail.com
 
-ENV JDK_URL http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+ENV JDK_URL http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz
 
 ENV JDK_HOME /usr/java/jdk
 ENV JAVA_HOME /usr/java/jre
