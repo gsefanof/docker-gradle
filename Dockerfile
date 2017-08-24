@@ -8,8 +8,8 @@ ENV JAVA_HOME /usr/java/jre
 
 USER root
 
-RUN curl http://pki.intelions.ru/private/ca.crt -o /usr/local/share/ca-certificates/ca.intelions.ru.crt && 
-    curl http://pki.intelions.ru/private/ca_class1.crt -o /usr/local/share/ca-certificates/ca_class1.intelions.ru.crt && 
+RUN curl --silent --location --retry 3 http://pki.intelions.ru/private/ca.crt -o /usr/local/share/ca-certificates/ca.intelions.ru.crt && 
+    curl --silent --location --retry 3 http://pki.intelions.ru/private/ca_class1.crt -o /usr/local/share/ca-certificates/ca_class1.intelions.ru.crt && 
     update-ca-certificates
 
 RUN mkdir -p ${JDK_HOME} && ln -s ${JDK_HOME}/jre $JAVA_HOME && \
