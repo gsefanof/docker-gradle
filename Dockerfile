@@ -8,6 +8,10 @@ ENV JAVA_HOME /usr/java/jre
 
 USER root
 
+RUN curl http://pki.intelions.ru/private/ca.crt -O /usr/local/share/ca-certificates/ca.intelions.ru.crt && 
+    curl http://pki.intelions.ru/private/ca_class1.crt -O /usr/local/share/ca-certificates/ca_class1.intelions.ru.crt && 
+    update-ca-certificates
+
 RUN mkdir -p ${JDK_HOME} && ln -s ${JDK_HOME}/jre $JAVA_HOME && \
         curl --silent --location --retry 3 --cacert /etc/ssl/certs/GeoTrust_Global_CA.pem \
   	  --header "Cookie: oraclelicense=accept-securebackup-cookie;" "$JDK_URL" \
